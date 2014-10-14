@@ -1,0 +1,16 @@
+#!/bin/bash
+
+## Dirs
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CD=$PWD
+cd "$DIR"
+
+## Installs
+cat Qstor.py > /usr/bin/qstord
+cat qstord.init > /etc/init.d/qstord
+chmod +x /usr/bin/qstord
+chmod +x /etc/init.d/qstord
+chkconfig qstord on
+service qstord restart
+
+cd "$CD"

@@ -9,6 +9,11 @@ import SocketServer
 from sys import argv
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 
+tmpDir = "/tmp/qstor"
+try:	os.makedirs(tmpDir)
+except:	pass
+os.chdir(tmpDir)
+
 
 
 class Transporter(BaseHTTPRequestHandler):
